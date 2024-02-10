@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header {
 	background-color: var(--global-dark);
 
@@ -22,3 +23,29 @@
 		}
 	}
 }
+=======
+.header {
+	background-color: var(--global-dark);
+
+	.wrapper {
+		padding: 0 15px;
+	}
+
+	.headerBody {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 15px 0;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.header {
+		border: none;
+
+		.wrapper {
+			padding: 0 30px;
+		}
+	}
+}
+>>>>>>> 6f1c8987f7e568d0d8904d19fb930456a6d641bc

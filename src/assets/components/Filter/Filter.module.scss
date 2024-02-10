@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .filter {
 	margin: 15px 0 0;
 
@@ -50,3 +51,57 @@
 		}
 	}
 }
+=======
+.filter {
+	margin: 15px 0 0;
+
+	.filterBody {
+		display: flex;
+		justify-content: flex-end;
+
+		.filterBtn {
+			display: flex;
+			align-items: center;
+			background: transparent;
+			border: none;
+			cursor: pointer;
+			color: var(--global-dark);
+		}
+	}
+
+	.filterBlock {
+		position: fixed;
+		height: 100%;
+		right: 0;
+		left: 0;
+		top: 0;
+		background: var(--global-dark);
+		padding: 15px;
+		transform: translateX(200%);
+		transition: transform 1s ease;
+		z-index: 2;
+		overflow-y: scroll;
+
+		&.visible {
+			transform: translate(0);
+		}
+
+		.closeFilter {
+			background: transparent;
+			border: none;
+			color: var(--global-light);
+			cursor: pointer;
+
+			position: fixed;
+			top: 15px;
+			left: 15px;
+		}
+
+		.btnApply {
+			width: 100%;
+			margin: 15px 0 0;
+			padding: 5px 15px;
+		}
+	}
+}
+>>>>>>> 6f1c8987f7e568d0d8904d19fb930456a6d641bc

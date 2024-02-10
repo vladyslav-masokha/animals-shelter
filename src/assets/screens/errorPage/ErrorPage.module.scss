@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .errorPage {
 	margin: auto;
 	text-align: center;
@@ -18,3 +19,25 @@
 		color: var(--global-lightgreen);
 	}
 }
+=======
+.errorPage {
+	margin: auto;
+	text-align: center;
+
+	.errorMessage {
+		font-size: 24px;
+
+		.errorCode {
+			color: var(--global-lightgreen);
+			padding: 0;
+
+			font-size: 52px;
+			font-weight: 700;
+		}
+	}
+
+	.homeLink {
+		color: var(--global-lightgreen);
+	}
+}
+>>>>>>> 6f1c8987f7e568d0d8904d19fb930456a6d641bc
