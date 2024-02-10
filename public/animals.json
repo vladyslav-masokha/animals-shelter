@@ -1,0 +1,102 @@
+[
+	{
+		"id": 1,
+		"name": "Боб",
+		"type": "Кіт",
+		"age": 3,
+		"weight": 3,
+		"size": "Середній",
+		"image": "./images/animals/cat1.jpeg",
+		"gender": "Чоловіча"
+	},
+	{
+		"id": 2,
+		"name": "Чарлі",
+		"type": "Собака",
+		"age": 5,
+		"weight": 8,
+		"size": "Великий",
+		"image": "./images/animals/dog1.jpg",
+		"gender": "Чоловіча"
+	},
+	{
+		"id": 3,
+		"name": "Віскерс",
+		"type": "Кіт",
+		"age": 2,
+		"weight": 2,
+		"size": "Малий",
+		"image": "./images/animals/cat2.jpg",
+		"gender": "Жіноча"
+	},
+	{
+		"id": 4,
+		"name": "Бадді",
+		"type": "Собака",
+		"age": 4,
+		"weight": 12,
+		"size": "Середній",
+		"image": "./images/animals/dog2.jpg",
+		"gender": "Чоловіча"
+	},
+	{
+		"id": 5,
+		"name": "Пухнастик",
+		"type": "Кролик",
+		"age": 1,
+		"weight": 1,
+		"size": "Малий",
+		"image": "./images/animals/rabbit1.jpg",
+		"gender": "Чоловіча"
+	},
+	{
+		"id": 6,
+		"name": "Макс",
+		"type": "Собака",
+		"age": 6,
+		"weight": 10,
+		"size": "Великий",
+		"image": "./images/animals/dog3.jpg",
+		"gender": "Чоловіча"
+	},
+	{
+		"id": 7,
+		"name": "Міттенс",
+		"type": "Кіт",
+		"age": 4,
+		"weight": 4,
+		"size": "Середній",
+		"image": "./images/animals/cat3.jpg",
+		"gender": "Чоловіча"
+	},
+	{
+		"id": 8,
+		"name": "Роккі",
+		"type": "Собака",
+		"age": 2,
+		"weight": 7,
+		"size": "Середній",
+		"image": "./images/animals/dog4.jpg",
+		"gender": "Жіноча"
+	},
+	{
+		"id": 9,
+		"name": "Коко",
+		"type": "Кіт",
+		"age": 5,
+		"weight": 5,
+		"size": "Середній",
+		"image": "./images/animals/cat4.jpg",
+		"gender": "Чоловіча"
+	},
+	{
+		"id": 10,
+		"name": "Орео",
+		"type": "Кролик",
+		"age": 2,
+		"weight": 2,
+		"size": "Малий",
+		"image": "./images/animals/rabbit2.jpeg",
+		"gender": "Жіноча"
+	}
+]
