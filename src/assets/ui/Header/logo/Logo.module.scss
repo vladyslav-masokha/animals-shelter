@@ -1,0 +1,17 @@
+.headerLogo {
+	text-align: center;
+
+	.logo {
+		display: flex;
+		align-items: center;
+		color: var(--global-light);
+
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	.subLogo {
+		color: var(--global-lightgreen);
+		font-style: italic;
+	}
+}

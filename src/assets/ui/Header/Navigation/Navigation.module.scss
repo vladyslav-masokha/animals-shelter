@@ -1,0 +1,186 @@
+.nav ul {
+	position: fixed;
+	top: 58px;
+	left: 0;
+	right: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding: 10px 15px;
+	transform: translateX(200%);
+	transition: transform 1s ease;
+	z-index: 2;
+
+	background: var(--global-dark);
+
+	.userAction {
+		display: flex;
+	}
+
+	.userAccount {
+		font-size: 16px;
+	}
+
+	&.visible {
+		transform: none;
+	}
+}
+
+.navLink,
+.logBtn,
+.regBtn,
+.userAccount {
+	color: var(--global-light);
+	background: #00000026;
+
+	text-align: center;
+	width: 100%;
+	padding: 15px 0;
+	border-radius: 20px;
+	margin: 0 0 10px;
+	transition: color 0.5s ease-in-out;
+
+	font-size: 20px;
+	font-weight: 700;
+	font-style: italic;
+
+	&:hover {
+		color: var(--global-yellow);
+	}
+
+	&.active {
+		color: var(--global-yellow);
+	}
+}
+
+.userAction {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 15px 0 0;
+	display: none;
+
+	.logBtn,
+	.regBtn,
+	.userAccount {
+		background: transparent;
+		margin: 0;
+		padding: 5px 0;
+		border-radius: 0%;
+	}
+}
+
+.burgerNav {
+	position: relative;
+	display: block;
+
+	width: 30px;
+	height: 20px;
+
+	padding: 0;
+	border: none;
+	background: transparent;
+
+	cursor: pointer;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		right: 0;
+
+		width: 100%;
+		height: 2px;
+
+		background: var(--global-light);
+		transition: transform 0.5s ease-in;
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	.burgerLine {
+		width: 100%;
+		height: 2px;
+
+		position: absolute;
+		right: 0;
+		top: 50%;
+
+		background: var(--global-light);
+		transform: translateY(-50%);
+		opacity: 1;
+		transition: opacity 1s ease;
+	}
+}
+
+.open {
+	.burgerLine {
+		opacity: 0;
+	}
+
+	&::before {
+		top: 10px;
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		top: 10px;
+		transform: rotate(-45deg);
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.nav ul {
+		position: static;
+		flex-direction: row;
+		align-items: normal;
+		justify-content: space-between;
+		transform: none;
+		padding: 0;
+
+		.navLink {
+			background: transparent;
+			width: auto;
+			padding: 0;
+			margin: 0;
+			font-size: 18px;
+			font-style: normal;
+
+			&:not(:first-child) {
+				margin: 0 0 0 15px;
+			}
+		}
+
+		.userAction {
+			display: none;
+		}
+	}
+
+	.userAction {
+		display: block;
+		flex-direction: row;
+		margin: 0;
+
+		a:not(:first-child) {
+			margin: 0 0 0 15px;
+		}
+
+		.logBtn,
+		.regBtn,
+		.userAccount {
+			font-size: 18px;
+		}
+	}
+
+	.burgerNav {
+		display: none;
+	}
+}

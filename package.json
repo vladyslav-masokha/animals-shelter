@@ -1,4 +1,42 @@
 {
+<<<<<<< HEAD
+	"name": "paws-proj",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.11.3",
+		"@emotion/styled": "^11.11.0",
+		"@mui/icons-material": "^5.15.6",
+		"@mui/material": "^5.15.6",
+		"firebase": "^10.7.2",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-firebase-hooks": "^5.1.1",
+		"react-router-dom": "^5.3.3",
+		"sass": "^1.70.0",
+		"scss": "^0.2.4"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.43",
+		"@types/react-dom": "^18.2.17",
+		"@types/react-router-dom": "^5.3.3",
+		"@typescript-eslint/eslint-plugin": "^6.14.0",
+		"@typescript-eslint/parser": "^6.14.0",
+		"@vitejs/plugin-react": "^4.2.1",
+		"eslint": "^8.55.0",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.5",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.8"
+	}
+=======
   "name": "paws-test",
   "private": true,
   "version": "0.0.0",
@@ -25,4 +63,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
   }
+>>>>>>> f471a365f50441e8caafcc5802f4c1b2779a831e
 }

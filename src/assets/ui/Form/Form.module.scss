@@ -1,0 +1,45 @@
+.form {
+	width: 100%;
+	max-width: 700px;
+	margin: 30px auto;
+	padding: 20px;
+	text-align: center;
+
+	.title {
+		margin: 15px 0;
+	}
+
+	.errorMessage {
+		color: var(--global-red);
+		margin: 0 0 15px;
+	}
+
+	.formBody {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+
+		input {
+			width: 100%;
+		}
+	}
+
+	> div {
+		width: 100%;
+	}
+
+	.forgotBtn {
+		display: flex;
+		justify-content: flex-end;
+		margin: 5px 0 0;
+
+		> button {
+			font-size: 12px;
+		}
+	}
+
+	.resetBtn {
+		width: 100%;
+		margin: 5px 0 0;
+	}
+}

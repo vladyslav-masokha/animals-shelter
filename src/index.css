@@ -1,4 +1,48 @@
 :root {
+<<<<<<< HEAD
+	--global-light: #eee;
+	--global-dark: #222;
+	--global-lightgreen: #70ff77;
+	--global-yellow: #faff65;
+	--global-red: #f00;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body,
+p,
+span {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+#root {
+	min-width: auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+
+.wrapper {
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 15px;
+=======
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +109,5 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+>>>>>>> f471a365f50441e8caafcc5802f4c1b2779a831e
 }
