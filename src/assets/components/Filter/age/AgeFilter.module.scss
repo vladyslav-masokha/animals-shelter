@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .filterAge {
 	margin: 50px 15px 0;
 	color: var(--global-light);
@@ -26,32 +25,3 @@
 		}
 	}
 }
-=======
-.filterAge {
-	margin: 50px 15px 0;
-	color: var(--global-light);
-
-	h3 {
-		margin: 0;
-	}
-
-	.filterAgeInputs {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 15px;
-
-		> div {
-			width: 100%;
-			color: var(--global-light);
-			border: 1px solid var(--global-light);
-
-			input,
-			> label {
-				color: var(--global-light);
-				font-size: 18px;
-			}
-		}
-	}
-}
->>>>>>> 6f1c8987f7e568d0d8904d19fb930456a6d641bc
