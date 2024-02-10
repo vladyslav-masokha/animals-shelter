@@ -4,9 +4,6 @@ import { Animal } from '../IAnimal'
 import styles from './Filter.module.scss'
 import { AgeFilter } from './age/AgeFilter'
 import { ButtonApplyFilter } from './applyFilter/ButtonApplyFilter'
-import { GenderFilter } from './gender/GenderFilter'
-import { SizeFilter } from './size/SizeFilter'
-import { TypeFilter } from './type/TypeFilter'
 
 interface FilterProps {
 	animals: Animal[]
@@ -17,29 +14,18 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 	const [openFilter, setOpenFilter] = useState(false)
 	const openFilterFunction = () => setOpenFilter(!openFilter)
 
-	const [ageFilter, setAgeFilter] = useState<number | null>(null)
-	const [genderFilter, setGenderFilter] = useState<string | null>(null)
-	const [sizeFilter, setSizeFilter] = useState<string | null>(null)
-	const [typeFilter, setTypeFilter] = useState<string | null>(null)
+	const [ageFilter, setAgeFilter] = useState<[number, number] | null>(null)
 
 	const applyFilters = () => {
-		let filtered = [...animals]
+		if (animals.length === 0) return
 
-		if (ageFilter !== null) {
-			filtered = filtered.filter(product => product.age === ageFilter)
-		}
+		const filteredProducts = animals.filter(animal => {
+			if (ageFilter === null) return true
+			
+			return animal.age >= ageFilter[0] && animal.age <= ageFilter[1]
+		})
 
-		if (genderFilter !== null) {
-			filtered = filtered.filter(product => product.gender === genderFilter)
-		}
-
-		if (sizeFilter !== null)
-			filtered = filtered.filter(product => product.size === sizeFilter)
-
-		if (typeFilter !== null)
-			filtered = filtered.filter(product => product.type === typeFilter)
-
-		setFilteredProducts(filtered)
+		setFilteredProducts(filteredProducts)
 	}
 
 	const logicOpenFilter = openFilter
@@ -60,7 +46,7 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 					</button>
 
 					<AgeFilter setAgeFilter={setAgeFilter} applyFilters={applyFilters} />
-					<GenderFilter
+					{/* <GenderFilter
 						setGenderFilter={setGenderFilter}
 						applyFilters={applyFilters}
 					/>
@@ -71,7 +57,7 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 					<TypeFilter
 						setTypeFilter={setTypeFilter}
 						applyFilters={applyFilters}
-					/>
+					/> */}
 
 					<ButtonApplyFilter
 						applyFilters={applyFilters}
