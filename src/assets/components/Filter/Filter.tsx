@@ -7,6 +7,7 @@ import { ButtonApplyFilter } from './applyFilter/ButtonApplyFilter'
 import { GenderFilter } from './gender/GenderFilter'
 import { SizeFilter } from './size/SizeFilter'
 import { TypeFilter } from './type/TypeFilter'
+import { WeightFilter } from './weight/WeightFilter'
 
 interface FilterProps {
 	animals: Animal[]
@@ -21,6 +22,9 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 	const [genderFilter, setGenderFilter] = useState<string | null>(null)
 	const [sizeFilter, setSizeFilter] = useState<string | null>(null)
 	const [typeFilter, setTypeFilter] = useState<string | null>(null)
+	const [weightFilter, setWeightFilter] = useState<[number, number] | null>(
+		null
+	)
 
 	const applyFilters = () => {
 		if (animals.length === 0) return
@@ -48,6 +52,14 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 		if (typeFilter !== null) {
 			filteredProducts = filteredProducts.filter(animal => {
 				return animal.type === typeFilter
+			})
+		}
+
+		if (weightFilter !== null) {
+			filteredProducts = filteredProducts.filter(animal => {
+				return (
+					animal.weight >= weightFilter[0] && animal.weight <= weightFilter[1]
+				)
 			})
 		}
 
@@ -85,6 +97,11 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 
 					<TypeFilter
 						setTypeFilter={setTypeFilter}
+						applyFilters={applyFilters}
+					/>
+
+					<WeightFilter
+						setWeightFilter={setWeightFilter}
 						applyFilters={applyFilters}
 					/>
 
