@@ -1,9 +1,17 @@
+import { Header } from '../../ui/Header/Header'
+import styles from './AboutPage.module.scss'
+
 const AboutPage = () => {
 	return (
-		<div className='wrapper'>
-			<h2>В розробці!</h2>
-			<h4>(Не скоро)</h4>
-		</div>
+		<>
+			<Header />
+
+			<div className={styles.about}>
+				<div className='wrapper'>
+					<h2>В розробці!</h2>
+				</div>
+			</div>
+		</>
 	)
 }
 

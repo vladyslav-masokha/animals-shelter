@@ -25,8 +25,13 @@ const HomePage = () => {
 
 			<div className={styles.home}>
 				<div className='wrapper'>
-					<Filter animals={animals} setFilteredProducts={setFilteredProducts} />
-					<AnimalsCards animals={filteredProducts} />
+					<div className={styles.homeBody}>
+						<Filter
+							animals={animals}
+							setFilteredProducts={setFilteredProducts}
+						/>
+						<AnimalsCards animals={filteredProducts} />
+					</div>
 				</div>
 			</div>
 		</>
