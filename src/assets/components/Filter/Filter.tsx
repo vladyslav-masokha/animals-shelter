@@ -4,6 +4,9 @@ import { Animal } from '../IAnimal'
 import styles from './Filter.module.scss'
 import { AgeFilter } from './age/AgeFilter'
 import { ButtonApplyFilter } from './applyFilter/ButtonApplyFilter'
+import { GenderFilter } from './gender/GenderFilter'
+import { SizeFilter } from './size/SizeFilter'
+import { TypeFilter } from './type/TypeFilter'
 
 interface FilterProps {
 	animals: Animal[]
@@ -15,15 +18,38 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 	const openFilterFunction = () => setOpenFilter(!openFilter)
 
 	const [ageFilter, setAgeFilter] = useState<[number, number] | null>(null)
+	const [genderFilter, setGenderFilter] = useState<string | null>(null)
+	const [sizeFilter, setSizeFilter] = useState<string | null>(null)
+	const [typeFilter, setTypeFilter] = useState<string | null>(null)
 
 	const applyFilters = () => {
 		if (animals.length === 0) return
 
-		const filteredProducts = animals.filter(animal => {
-			if (ageFilter === null) return true
-			
-			return animal.age >= ageFilter[0] && animal.age <= ageFilter[1]
-		})
+		let filteredProducts = animals
+
+		if (ageFilter !== null) {
+			filteredProducts = filteredProducts.filter(animal => {
+				return animal.age >= ageFilter[0] && animal.age <= ageFilter[1]
+			})
+		}
+
+		if (genderFilter !== null) {
+			filteredProducts = filteredProducts.filter(animal => {
+				return animal.gender === genderFilter
+			})
+		}
+
+		if (sizeFilter !== null) {
+			filteredProducts = filteredProducts.filter(animal => {
+				return animal.size === sizeFilter
+			})
+		}
+
+		if (typeFilter !== null) {
+			filteredProducts = filteredProducts.filter(animal => {
+				return animal.type === typeFilter
+			})
+		}
 
 		setFilteredProducts(filteredProducts)
 	}
@@ -46,18 +72,21 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 					</button>
 
 					<AgeFilter setAgeFilter={setAgeFilter} applyFilters={applyFilters} />
-					{/* <GenderFilter
+
+					<GenderFilter
 						setGenderFilter={setGenderFilter}
 						applyFilters={applyFilters}
 					/>
+
 					<SizeFilter
 						setSizeFilter={setSizeFilter}
 						applyFilters={applyFilters}
 					/>
+
 					<TypeFilter
 						setTypeFilter={setTypeFilter}
 						applyFilters={applyFilters}
-					/> */}
+					/>
 
 					<ButtonApplyFilter
 						applyFilters={applyFilters}

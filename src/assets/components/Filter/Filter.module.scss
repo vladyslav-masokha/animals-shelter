@@ -50,3 +50,29 @@
 		}
 	}
 }
+
+@media screen and (min-width: 1024px) {
+	.filter {
+		width: 30%;
+		margin: 25px 0 0;
+
+		.filterBody {
+			display: block;
+
+			.filterBtn {
+				display: none;
+			}
+
+			.filterBlock {
+				position: static;
+				transform: none;
+				overflow-y: hidden;
+				border-radius: 20px;
+			}
+
+			.closeFilter {
+				display: none;
+			}
+		}
+	}
+}

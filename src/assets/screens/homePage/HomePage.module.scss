@@ -1,3 +1,17 @@
 .home {
-	padding: 0 15px;
+	.homeBody {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.home {
+		.homeBody {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row-reverse;
+			align-items: flex-start;
+		}
+	}
 }

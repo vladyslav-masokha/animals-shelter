@@ -1,19 +1,19 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import { Dispatch, SetStateAction } from 'react'
 import styles from './GenderFilter.module.scss'
 
 interface GenderFilterProps {
-	setGenderFilter: Dispatch<SetStateAction<string | null>>
+	setGenderFilter: (genderFilter: string | null) => void
 	applyFilters: () => void
 }
 
-const GenderFilter: React.FC<GenderFilterProps> = ({ applyFilters }) => {
-	// const handleGenderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-	// 	const gender = event.target.value
-	// 	// setSelectedGender(gender)
-
-	// 	applyFilters()
-	// }
+const GenderFilter: React.FC<GenderFilterProps> = ({
+	setGenderFilter,
+	applyFilters,
+}) => {
+	const handleGenderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setGenderFilter(event.target.value === '' ? null : event.target.value)
+		applyFilters()
+	}
 
 	return (
 		<div className={styles.gender}>
@@ -21,8 +21,8 @@ const GenderFilter: React.FC<GenderFilterProps> = ({ applyFilters }) => {
 			<FormControl>
 				<RadioGroup
 					aria-labelledby='demo-radio-buttons-group-label'
-					value={''}
-					onChange={applyFilters}
+					defaultValue=''
+					onChange={handleGenderChange}
 					name='radio-buttons-group'
 				>
 					<FormControlLabel value='Жіноча' control={<Radio />} label='Жіноча' />

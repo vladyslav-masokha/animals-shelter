@@ -1,18 +1,19 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import { Dispatch, SetStateAction } from 'react'
 import styles from './SizeFilter.module.scss'
 
 interface SizeFilterProps {
-	setSizeFilter: Dispatch<SetStateAction<string | null>>
+	setSizeFilter: (sizeFilter: string | null) => void
 	applyFilters: () => void
 }
 
-const SizeFilter: React.FC<SizeFilterProps> = ({ applyFilters }) => {
-	// const [size, setSize] = useState('')
-
-	// const handleChange = (event: SelectChangeEvent) => {
-	// 	setSize(event.target.value)
-	// }
+const SizeFilter: React.FC<SizeFilterProps> = ({
+	setSizeFilter,
+	applyFilters,
+}) => {
+	const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setSizeFilter(event.target.value === '' ? null : event.target.value)
+		applyFilters()
+	}
 
 	return (
 		<div className={styles.size}>
@@ -20,8 +21,8 @@ const SizeFilter: React.FC<SizeFilterProps> = ({ applyFilters }) => {
 			<FormControl>
 				<RadioGroup
 					aria-labelledby='demo-radio-buttons-group-label'
-					value={''}
-					onChange={applyFilters}
+					defaultValue=''
+					onChange={handleSizeChange}
 					name='radio-buttons-group'
 				>
 					<FormControlLabel
