@@ -1,12 +1,14 @@
-import { AuthErrorCodes, getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { AuthError, getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { LoginErrorMessages } from '../errorMessages/LoginErrorMessage'
+
+type SetState<T> = (state: T) => void
 
 const handleLogin = (
 	email: string,
 	password: string,
-	setEmail: (email: string) => void,
-	setPassword: (password: string) => void,
-	setErrorMessage: (errorMessage: string | null) => void
+	setEmail: SetState<string>,
+	setPassword: SetState<string>,
+	setErrorMessage: SetState<string | null>
 ) => {
 	const auth = getAuth()
 
@@ -16,17 +18,9 @@ const handleLogin = (
 			setPassword('')
 			setErrorMessage('')
 		})
-		.catch(error => {
-			const errorCode = error.code
-			const errorMessage = error.message
-
-
-
-			LoginErrorMessages(setErrorMessage, errorCode, errorMessage)
-
-			console.error('Не вдалося авторизуватись:', errorCode, errorMessage)
-			console.error(AuthErrorCodes.INVALID_LOGIN_CREDENTIALS);
-			
+		.catch((error: AuthError) => {
+			const { code, message } = error
+			LoginErrorMessages(setErrorMessage, code, message)
 		})
 }
 
