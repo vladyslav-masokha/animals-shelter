@@ -1,17 +1,20 @@
 import {
-	AuthErrorCodes,
+	AuthError,
 	createUserWithEmailAndPassword,
 	getAuth,
 	updateProfile,
 } from 'firebase/auth'
+import { RegisterErrorMessages } from '../errorMessages/RegisterErrorMessages'
+
+type SetState<T> = (state: T) => void
 
 const handleRegister = (
 	userName: string,
 	email: string,
 	password: string,
-	setEmail: (email: string) => void,
-	setPassword: (password: string) => void,
-	setErrorMessage: (errorMessage: string | null) => void
+	setEmail: SetState<string>,
+	setPassword: SetState<string>,
+	setErrorMessage: SetState<string | null>
 ) => {
 	const auth = getAuth()
 
@@ -24,27 +27,9 @@ const handleRegister = (
 			setPassword('')
 			setErrorMessage('')
 		})
-		.catch(error => {
-			const errorCode = error.code
-			const errorMessage = error.message
-
-			setErrorMessage(
-				errorCode === AuthErrorCodes.CREDENTIAL_ALREADY_IN_USE
-					? 'Адреса електронної пошти вже використовується.'
-					: errorCode === AuthErrorCodes.INVALID_EMAIL
-					? 'Невірна адреса електронної пошти.'
-					: errorCode === AuthErrorCodes.POPUP_BLOCKED
-					? 'Вікно авторизації заблоковано.'
-					: errorCode === AuthErrorCodes.NETWORK_REQUEST_FAILED
-					? 'Помилка мережі. Спробуйте пізніше.'
-					: errorCode === 'auth/missing-password'
-					? 'Невірний пароль.'
-					: errorCode === AuthErrorCodes.TOO_MANY_ATTEMPTS_TRY_LATER
-					? 'Доступ до цього акаунта тимчасово вимкнено через численні невдалі спроби входу. Ви можете негайно відновити його, скинувши пароль, або спробувати пізніше.'
-					: errorMessage
-			)
-
-			console.error('Не вдалося зареєструватися:', errorCode, errorMessage)
+		.catch((error: AuthError) => {
+			const { code, message } = error
+			RegisterErrorMessages(setErrorMessage, code, message)
 		})
 }
 
