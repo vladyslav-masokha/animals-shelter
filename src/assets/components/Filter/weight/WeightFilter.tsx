@@ -1,5 +1,6 @@
-import { Slider, TextField } from '@mui/material'
+import { TextField } from '@mui/material'
 import { useState } from 'react'
+import { sliderStyle as Slider } from '../sliderStyle'
 import styles from './WeightFilter.module.scss'
 import { valueLabelFormat } from './logic/valueLabelFormat'
 

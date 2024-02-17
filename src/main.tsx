@@ -10,7 +10,7 @@ import { RegisterPage } from './assets/screens/registerPage/RegisterPage.tsx'
 import { ResetPasswordPage } from './assets/screens/resetPasswordPage/ResetPasswordPage.tsx'
 import { UserProfilePage } from './assets/screens/userProfilePage/UserProfilePage.tsx'
 import './firebase.ts'
-import './index.css'
+import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>

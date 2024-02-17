@@ -1,7 +1,8 @@
-import { Slider, TextField } from '@mui/material'
+import { TextField } from '@mui/material'
 import { useState } from 'react'
 import styles from './AgeFilter.module.scss'
 import { valueLabelFormat } from './logic/valueLabelFormat'
+import { sliderStyle as Slider } from '../sliderStyle'
 
 interface AgeFilterProps {
 	setAgeFilter: (ageRange: [number, number] | null) => void
@@ -42,7 +43,7 @@ const AgeFilter: React.FC<AgeFilterProps> = ({
 				value={ageRange}
 				onChange={handleAgeChange}
 				onChangeCommitted={handleApplyFilters}
-				color='primary'
+				color="secondary"
 				valueLabelDisplay='auto'
 				valueLabelFormat={valueLabelFormat}
 				min={1}

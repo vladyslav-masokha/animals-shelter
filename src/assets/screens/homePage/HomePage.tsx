@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { AnimalsCards } from '../../components/AnimalCards/AnimalsCards'
-import { Filter } from '../../components/Filter/Filter'
 import { Animal } from '../../components/IAnimal'
+import { AnimalsCards } from '../../components/animalCards/AnimalsCards'
+import { Filter } from '../../components/filter/Filter'
 import { Header } from '../../ui/Header/Header'
 import styles from './HomePage.module.scss'
 

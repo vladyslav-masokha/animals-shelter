@@ -1,4 +1,5 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
+import { radioStyles } from '../radioStyles'
 import styles from './TypeFilter.module.scss'
 
 interface TypeFilterProps {
@@ -25,10 +26,26 @@ const TypeFilter: React.FC<TypeFilterProps> = ({
 					onChange={handleTypeChange}
 					name='radio-buttons-group'
 				>
-					<FormControlLabel value='Собака' control={<Radio />} label='Собака' />
-					<FormControlLabel value='Кіт' control={<Radio />} label='Кіт' />
-					<FormControlLabel value='Кролик' control={<Radio />} label='Кролик' />
-					<FormControlLabel value='' control={<Radio />} label='Усі' />
+					<FormControlLabel
+						value='Собака'
+						control={<Radio sx={radioStyles} />}
+						label='Собака'
+					/>
+					<FormControlLabel
+						value='Кіт'
+						control={<Radio sx={radioStyles} />}
+						label='Кіт'
+					/>
+					<FormControlLabel
+						value='Кролик'
+						control={<Radio sx={radioStyles} />}
+						label='Кролик'
+					/>
+					<FormControlLabel
+						value=''
+						control={<Radio sx={radioStyles} />}
+						label='Усі'
+					/>
 				</RadioGroup>
 			</FormControl>
 		</div>

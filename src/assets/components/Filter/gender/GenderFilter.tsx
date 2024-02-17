@@ -1,4 +1,5 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
+import { radioStyles } from '../radioStyles'
 import styles from './GenderFilter.module.scss'
 
 interface GenderFilterProps {
@@ -25,13 +26,21 @@ const GenderFilter: React.FC<GenderFilterProps> = ({
 					onChange={handleGenderChange}
 					name='radio-buttons-group'
 				>
-					<FormControlLabel value='Жіноча' control={<Radio />} label='Жіноча' />
+					<FormControlLabel
+						value='Жіноча'
+						control={<Radio sx={radioStyles} />}
+						label='Жіноча'
+					/>
 					<FormControlLabel
 						value='Чоловіча'
-						control={<Radio />}
+						control={<Radio sx={radioStyles} />}
 						label='Чоловіча'
 					/>
-					<FormControlLabel value='' control={<Radio />} label='Усі' />
+					<FormControlLabel
+						value=''
+						control={<Radio sx={radioStyles} />}
+						label='Усі'
+					/>
 				</RadioGroup>
 			</FormControl>
 		</div>

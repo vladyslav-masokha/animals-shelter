@@ -4,6 +4,7 @@ import { Animal } from '../IAnimal'
 import styles from './Filter.module.scss'
 import { AgeFilter } from './age/AgeFilter'
 import { ButtonApplyFilter } from './applyFilter/ButtonApplyFilter'
+import { useFilterLogic } from './applyFilter/useFilterLogic'
 import { GenderFilter } from './gender/GenderFilter'
 import { SizeFilter } from './size/SizeFilter'
 import { TypeFilter } from './type/TypeFilter'
@@ -16,7 +17,6 @@ interface FilterProps {
 
 const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 	const [openFilter, setOpenFilter] = useState(false)
-	const openFilterFunction = () => setOpenFilter(!openFilter)
 
 	const [ageFilter, setAgeFilter] = useState<[number, number] | null>(null)
 	const [genderFilter, setGenderFilter] = useState<string | null>(null)
@@ -26,44 +26,19 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 		null
 	)
 
-	const applyFilters = () => {
-		if (animals.length === 0) return
+	const applyFilters = useFilterLogic(
+		animals,
+		setFilteredProducts,
+		ageFilter,
+		genderFilter,
+		sizeFilter,
+		typeFilter,
+		weightFilter
+	)
 
-		let filteredProducts = animals
-
-		if (ageFilter !== null) {
-			filteredProducts = filteredProducts.filter(animal => {
-				return animal.age >= ageFilter[0] && animal.age <= ageFilter[1]
-			})
-		}
-
-		if (genderFilter !== null) {
-			filteredProducts = filteredProducts.filter(animal => {
-				return animal.gender === genderFilter
-			})
-		}
-
-		if (sizeFilter !== null) {
-			filteredProducts = filteredProducts.filter(animal => {
-				return animal.size === sizeFilter
-			})
-		}
-
-		if (typeFilter !== null) {
-			filteredProducts = filteredProducts.filter(animal => {
-				return animal.type === typeFilter
-			})
-		}
-
-		if (weightFilter !== null) {
-			filteredProducts = filteredProducts.filter(animal => {
-				return (
-					animal.weight >= weightFilter[0] && animal.weight <= weightFilter[1]
-				)
-			})
-		}
-
-		setFilteredProducts(filteredProducts)
+	const openFilterFunction = () => {
+		setOpenFilter(!openFilter)
+		applyFilters()
 	}
 
 	const logicOpenFilter = openFilter

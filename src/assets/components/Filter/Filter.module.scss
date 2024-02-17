@@ -21,7 +21,7 @@
 		right: 0;
 		left: 0;
 		top: 0;
-		background: var(--global-dark);
+		background: var(--global-pastel-dark);
 		padding: 15px;
 		transform: translateX(200%);
 		transition: transform 1s ease;
@@ -47,6 +47,7 @@
 			width: 100%;
 			margin: 15px 0 0;
 			padding: 5px 15px;
+			color: var(--global-yellow-dark);
 		}
 	}
 }
