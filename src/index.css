@@ -3,8 +3,11 @@
 	--global-dark: #222;
 	--global-lightgreen: #70ff77;
 	--global-yellow: #faff65;
+	--global-yellow-dark: #ffd700;
 	--global-red: #f00;
-	--global-pastel: #cabaaa;
+	--global-pastel: #bb8763;
+	--global-pastel-light: #e6c3a9;
+	--global-pastel-dark: #855f45;
 }
 
 *,

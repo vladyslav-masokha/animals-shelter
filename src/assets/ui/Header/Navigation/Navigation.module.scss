@@ -13,7 +13,7 @@
 	transition: transform 1s ease;
 	z-index: 2;
 
-	background: var(--global-dark);
+	background-color: var(--global-pastel-dark);
 
 	.userAction {
 		display: flex;
@@ -39,7 +39,7 @@
 	width: 100%;
 	padding: 15px 0;
 	border-radius: 20px;
-	margin: 0 0 10px;
+	margin: 10px 0;
 	transition: color 0.5s ease-in-out;
 
 	font-size: 20px;
@@ -145,6 +145,8 @@
 		justify-content: space-between;
 		transform: none;
 		padding: 0;
+
+		background: transparent;
 
 		.navLink {
 			background: transparent;
