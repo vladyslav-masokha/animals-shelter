@@ -25,7 +25,7 @@
 		"type": "Кіт",
 		"age": 2,
 		"weight": 2,
-		"size": "Малий",
+		"size": "Маленький",
 		"image": "./images/animals/cat2.jpg",
 		"gender": "Жіноча"
 	},
@@ -45,9 +45,9 @@
 		"type": "Кролик",
 		"age": 1,
 		"weight": 1,
-		"size": "Малий",
+		"size": "Маленький",
 		"image": "./images/animals/rabbit1.jpg",
-		"gender": "Чоловіча"
+		"gender": "Жіноча"
 	},
 	{
 		"id": 6,
@@ -95,7 +95,7 @@
 		"type": "Кролик",
 		"age": 2,
 		"weight": 2,
-		"size": "Малий",
+		"size": "Маленький",
 		"image": "./images/animals/rabbit2.jpeg",
 		"gender": "Жіноча"
 	}
