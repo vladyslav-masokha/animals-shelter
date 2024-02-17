@@ -73,7 +73,7 @@
 		"id": 8,
 		"name": "Роккі",
 		"type": "Собака",
-		"age": 2,
+		"age": 3,
 		"weight": 7,
 		"size": "Середній",
 		"image": "./images/animals/dog4.jpg",
