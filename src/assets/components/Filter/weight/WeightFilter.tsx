@@ -12,7 +12,7 @@ const WeightFilter: React.FC<WeightFilterProps> = ({
 	setWeightFilter,
 	applyFilters,
 }) => {
-	const [weightRange, setWeightRange] = useState<[number, number]>([1, 10])
+	const [weightRange, setWeightRange] = useState<[number, number]>([1, 12])
 
 	const handleApplyFilters = () => {
 		setWeightFilter(weightRange)
@@ -46,7 +46,7 @@ const WeightFilter: React.FC<WeightFilterProps> = ({
 				valueLabelDisplay='auto'
 				valueLabelFormat={valueLabelFormat}
 				min={1}
-				max={10}
+				max={12}
 			/>
 
 			<div className={styles.filterAgeInputs}>
@@ -60,13 +60,13 @@ const WeightFilter: React.FC<WeightFilterProps> = ({
 					InputProps={{ inputProps: { min: 1, max: weightRange[1] } }}
 				/>
 				<TextField
-					placeholder='10'
+					placeholder='12'
 					value={weightRange[1]}
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
 						handleInputChange(e, 'max')
 					}
 					type='number'
-					InputProps={{ inputProps: { min: weightRange[0], max: 10 } }}
+					InputProps={{ inputProps: { min: weightRange[0], max: 12 } }}
 				/>
 			</div>
 		</div>
