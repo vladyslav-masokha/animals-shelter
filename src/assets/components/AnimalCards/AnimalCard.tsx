@@ -24,7 +24,7 @@ const AnimalCard: React.FC<AnimalCardProps> = ({ animals }) => {
 					</Link>
 				))
 			) : (
-				<p>Animals is not defined!</p>
+				<p className={styles.not_animals}>Тваринки не знайдені!</p>
 			)}
 		</>
 	)
