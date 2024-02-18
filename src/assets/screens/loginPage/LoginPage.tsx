@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { getAuth } from 'firebase/auth'
 import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -8,7 +9,8 @@ import { AuthBtnForgotPassword } from '../../ui/Form/buttons/AuthBtnForgotPasswo
 import { AuthBtnLogin } from '../../ui/Form/buttons/AuthBtnLogin'
 import { SignInWithGoogle } from '../../ui/Form/buttons/AuthBtnSignInWithGoogle'
 import { handleLogin } from '../../ui/Form/logic/LoginService'
-import { useTitleLogic } from './logic/titleLogic'
+import { ErrorMessages } from '../globalLogic/errorMessageLogic'
+import { useTitleLogic } from '../globalLogic/titleLogic'
 
 const LoginPage = () => {
 	const history = useHistory()
@@ -20,7 +22,7 @@ const LoginPage = () => {
 	const [isEmailValid, setIsEmailValid] = useState<boolean>(true)
 	const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true)
 
-	useTitleLogic()
+	useTitleLogic({ namePage: 'Авторизація' })
 
 	useEffect(() => {
 		if (user) history.push('/')
@@ -32,10 +34,8 @@ const LoginPage = () => {
 	return (
 		<form className={styles.form}>
 			<div className='wrapper'>
-				<h2 className={styles.title}>Логін</h2>
-				{errorMessage && (
-					<div className={styles.errorMessage}>{errorMessage}</div>
-				)}
+				<Typography className={styles.title}>Логін</Typography>
+				<ErrorMessages errorMessage={errorMessage} />
 
 				<FormBody
 					email={email}
