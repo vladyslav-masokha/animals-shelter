@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material'
+import { TextField, Typography } from '@mui/material'
 import { getAuth } from 'firebase/auth'
 import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -11,7 +11,8 @@ import { handleUserNameBlur } from '../../ui/Form/handleBlurLogic/HandleUserName
 import { helperTextUserNameLogic } from '../../ui/Form/helperLogic/HelperTextUserNameLogic'
 import { handleUserNameChange } from '../../ui/Form/logic/AuthLogic'
 import { handleRegister } from '../../ui/Form/logic/RegisterService'
-import { useTitleLogic } from './logic/TitleLogic'
+import { ErrorMessages } from '../globalLogic/errorMessageLogic'
+import { useTitleLogic } from '../globalLogic/titleLogic'
 
 const RegisterPage = () => {
 	const history = useHistory()
@@ -25,7 +26,7 @@ const RegisterPage = () => {
 	const [isEmailValid, setIsEmailValid] = useState<boolean>(true)
 	const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true)
 
-	useTitleLogic()
+	useTitleLogic({ namePage: 'Реєстрація' })
 
 	useEffect(() => {
 		if (user) history.push('/')
@@ -44,17 +45,15 @@ const RegisterPage = () => {
 	return (
 		<form className={styles.form}>
 			<div className='wrapper'>
-				<h2 className={styles.title}>Реєстрація</h2>
-				{errorMessage && (
-					<div className={styles.errorMessage}>{errorMessage}</div>
-				)}
+				<Typography className={styles.title}>Реєстрація</Typography>
+				<ErrorMessages errorMessage={errorMessage} />
 
 				<div className={styles.formBody}>
 					<TextField
 						required
 						type='text'
-						id='outlined-basic'
-						label={`Ім'я користувача`}
+						id='outlined-basic-1'
+						label="Ім'я користувача"
 						variant='outlined'
 						value={userName}
 						error={!isUserNameValid}
@@ -74,13 +73,11 @@ const RegisterPage = () => {
 						setIsEmailValid={setIsEmailValid}
 						setIsPasswordValid={setIsPasswordValid}
 					/>
-
 					<AuthBtnRegister
 						handleRegisterClick={handleRegisterClick}
 						isEmailValid={isEmailValid}
 						isPasswordValid={isPasswordValid}
 					/>
-
 					<SignInWithGoogle auth={auth} />
 				</div>
 			</div>
