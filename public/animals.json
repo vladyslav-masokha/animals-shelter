@@ -98,5 +98,15 @@
 		"size": "Маленький",
 		"image": "./images/animals/rabbit2.jpeg",
 		"gender": "Жіноча"
+	},
+	{
+		"id": 11,
+		"name": "Бетти",
+		"type": "Кролик",
+		"age": 3,
+		"weight": 5,
+		"size": "Середній",
+		"image": "./images/animals/rabbit3.jpeg",
+		"gender": "Чоловіча"
 	}
 ]
