@@ -1,7 +1,7 @@
 {
 	"name": "paws-proj",
 	"private": true,
-	"version": "0.0.0",
+	"version": "1.0.7",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -15,6 +15,7 @@
 		"@mui/icons-material": "^5.15.6",
 		"@mui/material": "^5.15.6",
 		"firebase": "^10.7.2",
+		"firebase-admin": "^12.0.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-firebase-hooks": "^5.1.1",

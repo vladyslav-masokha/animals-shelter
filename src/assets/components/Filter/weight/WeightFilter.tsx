@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material'
 import { useState } from 'react'
-import { sliderStyle as Slider } from '../sliderStyle'
-import styles from './WeightFilter.module.scss'
+import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
+import styles from '../Filter.module.scss'
 import { valueLabelFormat } from './logic/valueLabelFormat'
 
 interface WeightFilterProps {
@@ -36,7 +36,7 @@ const WeightFilter: React.FC<WeightFilterProps> = ({
 	}
 
 	return (
-		<div className={styles.filterAge}>
+		<div className={styles.filterWeight}>
 			<h3>Вага</h3>
 
 			<Slider
@@ -50,7 +50,7 @@ const WeightFilter: React.FC<WeightFilterProps> = ({
 				max={12}
 			/>
 
-			<div className={styles.filterAgeInputs}>
+			<div className={styles.filterWeightInputs}>
 				<TextField
 					placeholder='1'
 					value={weightRange[0]}

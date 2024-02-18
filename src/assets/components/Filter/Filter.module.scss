@@ -37,10 +37,54 @@
 			border: none;
 			color: var(--global-light);
 			cursor: pointer;
-
 			position: fixed;
 			top: 15px;
 			left: 15px;
+		}
+
+		.filterAge,
+		.filterWeight {
+			margin: 50px 15px 0;
+			color: var(--global-light);
+
+			h3 {
+				margin: 0;
+			}
+
+			.filterAgeInputs,
+			.filterWeightInputs {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 15px;
+
+				> div {
+					width: 100%;
+					color: var(--global-light);
+					border: 1px solid var(--global-light);
+
+					input,
+					> label {
+						color: var(--global-light);
+						font-size: 18px;
+					}
+				}
+			}
+		}
+
+		.filterGender,
+		.filterSize,
+		.filterType {
+			margin: 30px 15px 0;
+			color: var(--global-light);
+
+			h3 {
+				margin: 0 0 5px 0;
+			}
+
+			.css-1869usk-MuiFormControl-root {
+				display: block;
+			}
 		}
 
 		.btnApply {
@@ -69,10 +113,10 @@
 				transform: none;
 				overflow-y: hidden;
 				border-radius: 20px;
-			}
 
-			.closeFilter {
-				display: none;
+				.closeFilter {
+					display: none;
+				}
 			}
 		}
 	}

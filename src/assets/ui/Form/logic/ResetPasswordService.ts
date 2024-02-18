@@ -7,7 +7,7 @@ const handleResetPassword = (
 	const auth = getAuth()
 	sendPasswordResetEmail(auth, email)
 		.then(() => {
-			console.log(email)
+			return { success: true, message: `Email sent to ${email} successfully.` }
 		})
 		.catch(error => {
 			const errorCode = error.code
@@ -16,20 +16,13 @@ const handleResetPassword = (
 			console.log(AuthErrorCodes)
 
 			setErrorMessage(
-				errorCode === AuthErrorCodes.CREDENTIAL_ALREADY_IN_USE
-					? 'Адреса електронної пошти вже використовується.'
-					: errorCode === AuthErrorCodes.INVALID_EMAIL
-					? 'Невірна адреса електронної пошти.'
-					: errorCode === AuthErrorCodes.POPUP_BLOCKED
-					? 'Вікно авторизації заблоковано.'
+				errorCode === AuthErrorCodes.USER_DELETED ||
+					errorCode === 'auth/user-not-found'
+					? 'Користувач не знайдений!'
 					: errorCode === AuthErrorCodes.NETWORK_REQUEST_FAILED
 					? 'Помилка мережі. Спробуйте пізніше.'
 					: errorCode === 'auth/missing-email'
-					? 'Введіть пошту.'
-					: errorCode === 'auth/missing-password'
-					? 'Введіть пароль.'
-					: errorCode === AuthErrorCodes.TOO_MANY_ATTEMPTS_TRY_LATER
-					? 'Доступ до цього акаунта тимчасово вимкнено через численні невдалі спроби входу. Ви можете негайно відновити його, скинувши пароль, або спробувати пізніше.'
+					? 'Не вказана адреса електронної пошти.'
 					: errorMessage
 			)
 		})

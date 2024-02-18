@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import { radioStyles } from '../radioStyles'
-import styles from './GenderFilter.module.scss'
+import { radioStyles } from '../filterStyles/radioStyles'
+import styles from '../Filter.module.scss'
 
 interface GenderFilterProps {
 	setGenderFilter: (genderFilter: string | null) => void
@@ -17,7 +17,7 @@ const GenderFilter: React.FC<GenderFilterProps> = ({
 	}
 
 	return (
-		<div className={styles.gender}>
+		<div className={styles.filterGender}>
 			<h3>Стать</h3>
 			<FormControl>
 				<RadioGroup

@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import { radioStyles } from '../radioStyles'
-import styles from './SizeFilter.module.scss'
+import styles from '../Filter.module.scss'
+import { radioStyles } from '../filterStyles/radioStyles'
 
 interface SizeFilterProps {
 	setSizeFilter: (sizeFilter: string | null) => void
@@ -17,7 +17,7 @@ const SizeFilter: React.FC<SizeFilterProps> = ({
 	}
 
 	return (
-		<div className={styles.size}>
+		<div className={styles.filterSize}>
 			<h3>Розмір</h3>
 			<FormControl>
 				<RadioGroup

@@ -5,8 +5,16 @@
 	padding: 20px;
 	text-align: center;
 
+	.formGaps {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
 	.title {
 		margin: 15px 0;
+		font-size: 24px;
+		font-weight: 700;
 	}
 
 	.errorMessage {
@@ -31,11 +39,16 @@
 	.forgotBtn {
 		display: flex;
 		justify-content: flex-end;
-		margin: 5px 0 0;
 
 		> button {
 			font-size: 12px;
+			font-weight: 700;
+			color: var(--global-yellow-dark);
 		}
+	}
+
+	.signInGoogle {
+		background-color: var(--global-yellow-dark);
 	}
 
 	.resetBtn {

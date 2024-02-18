@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import { radioStyles } from '../radioStyles'
-import styles from './TypeFilter.module.scss'
+import styles from '../Filter.module.scss'
+import { radioStyles } from '../filterStyles/radioStyles'
 
 interface TypeFilterProps {
 	setTypeFilter: (typeFilter: string | null) => void
@@ -17,7 +17,7 @@ const TypeFilter: React.FC<TypeFilterProps> = ({
 	}
 
 	return (
-		<div className={styles.type}>
+		<div className={styles.filterType}>
 			<h3>Тип</h3>
 			<FormControl>
 				<RadioGroup
