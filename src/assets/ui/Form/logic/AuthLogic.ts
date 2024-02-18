@@ -1,16 +1,8 @@
 import { Auth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 
-interface handleUserNameChangeProps {
-	setUserName: (userName: string) => void
-}
-
-interface handleEmailChangeProps {
-	setEmail: (email: string) => void
-}
-
-interface handlePasswordChangeProps {
-	setPassword: (password: string) => void
-}
+interface handleUserNameChangeProps {setUserName: (userName: string) => void}
+interface handleEmailChangeProps {setEmail: (email: string) => void}
+interface handlePasswordChangeProps {setPassword: (password: string) => void}
 
 const handleUserNameChange = (
 	e: React.ChangeEvent<HTMLInputElement>,
@@ -36,5 +28,5 @@ export {
 	handleEmailChange,
 	handleGoogleSignIn,
 	handlePasswordChange,
-	handleUserNameChange,
+	handleUserNameChange
 }
