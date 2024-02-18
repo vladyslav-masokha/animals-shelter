@@ -1,5 +1,6 @@
 import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
+import styles from '../Form.module.scss'
 
 interface AuthButtonProps {
 	handleLoginClick: () => void
@@ -13,7 +14,7 @@ const AuthBtnLogin: React.FC<AuthButtonProps> = ({
 	isPasswordValid,
 }) => {
 	return (
-		<div>
+		<div className={styles.loginBtns}>
 			<Button
 				variant='text'
 				onClick={handleLoginClick}

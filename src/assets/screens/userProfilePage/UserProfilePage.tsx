@@ -3,7 +3,7 @@ import { useTitleLogic } from '../globalLogic/titleLogic'
 import styles from './UserProfile.module.scss'
 
 const UserProfilePage = () => {
-	useTitleLogic({ namePage: 'Профіль' })
+	useTitleLogic({ namePage: 'Профіль', id: null })
 
 	return (
 		<>

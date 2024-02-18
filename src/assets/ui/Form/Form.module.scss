@@ -37,18 +37,33 @@
 	}
 
 	.forgotBtn {
-		display: flex;
-		justify-content: flex-end;
+		position: relative;
 
 		> button {
 			font-size: 12px;
 			font-weight: 700;
-			color: var(--global-yellow-dark);
+			color: var(--global-pastel-dark);
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	.loginBtns {
+		margin: 25px 0 0;
+
+		button {
+			color: var(--global-pastel);
+		}
+	}
+
+	.regBtns {
+		button {
+			color: var(--global-pastel);
 		}
 	}
 
 	.signInGoogle {
-		background-color: var(--global-yellow-dark);
+		background-color: var(--global-pastel-light);
 	}
 
 	.resetBtn {

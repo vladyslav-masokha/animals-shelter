@@ -3,7 +3,7 @@ import { useTitleLogic } from '../globalLogic/titleLogic'
 import styles from './DonationPage.module.scss'
 
 const DonationPage = () => {
-	useTitleLogic({ namePage: 'Донорство' })
+	useTitleLogic({ namePage: 'Донорство', id: null })
 
 	return (
 		<>

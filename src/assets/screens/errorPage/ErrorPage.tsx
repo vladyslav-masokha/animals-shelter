@@ -3,7 +3,7 @@ import { useTitleLogic } from '../globalLogic/titleLogic'
 import styles from './ErrorPage.module.scss'
 
 const ErrorPage = () => {
-	useTitleLogic({ namePage: 'Сторінку не знайдено!' })
+	useTitleLogic({ namePage: 'Сторінку не знайдено!', id: null })
 
 	return (
 		<div className={styles.errorPage}>

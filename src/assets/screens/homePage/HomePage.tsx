@@ -3,21 +3,19 @@ import { Animal } from '../../components/IAnimal'
 import { AnimalsCards } from '../../components/animalCards/AnimalsCards'
 import { Filter } from '../../components/filter/Filter'
 import { Header } from '../../ui/Header/Header'
+import { useFetchData } from '../../useFetchData'
 import styles from './HomePage.module.scss'
 
 const HomePage = () => {
 	const [animals, setAnimals] = useState<Animal[]>([])
 	const [filteredProducts, setFilteredProducts] = useState<Animal[]>([])
-	const animalsData = './animals.json'
+	const animalsData: string = './animals.json'
+	const data = useFetchData(animalsData)
 
 	useEffect(() => {
-		fetch(animalsData)
-			.then(res => res.json())
-			.then(data => {
-				setAnimals(data)
-				setFilteredProducts(data)
-			})
-	}, [])
+		setAnimals(data)
+		setFilteredProducts(data)
+	}, [data])
 
 	return (
 		<>

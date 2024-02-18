@@ -5,10 +5,15 @@ const RegisterErrorMessages = (
 	errorCode: string,
 	errorMessage: string
 ) => {
-	console.log(AuthErrorCodes)
-
 	setErrorMessage(
-		errorCode === AuthErrorCodes.EMAIL_EXISTS
+		errorCode === AuthErrorCodes.INVALID_EMAIL
+			? 'Невірна адреса електронної пошти!'
+			: errorCode === 'auth/missing-password'
+			? 'Введіть пароль!'
+			: errorCode === AuthErrorCodes.WEAK_PASSWORD ||
+      errorCode === 'auth/weak-password'
+      ? 'Слабкий пароль. Виберіть більш надійний пароль!'
+			: errorCode === AuthErrorCodes.EMAIL_EXISTS
 			? 'Вибачте, цей електронний адрес вже використовується. Будь ласка, використайте інший!'
 			: errorCode === AuthErrorCodes.POPUP_CLOSED_BY_USER ||
 			errorCode === 'auth/popup-closed-by-user'

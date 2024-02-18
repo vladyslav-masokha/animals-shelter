@@ -1,4 +1,4 @@
-const valueLabelFormat = (value: number) => {
+const valueLabelFormatWeight = (value: number) => {
 	if (value % 10 === 1 && value !== 11) return `${value} кг`
 
 	if (
@@ -11,4 +11,4 @@ const valueLabelFormat = (value: number) => {
 	return `${value} кг`
 }
 
-export { valueLabelFormat }
+export { valueLabelFormatWeight }

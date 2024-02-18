@@ -14,7 +14,7 @@ const ResetPasswordPage = () => {
 	const [isEmailValid, setIsEmailValid] = useState<boolean>(true)
 	const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
-	useTitleLogic({ namePage: 'Відновлення пароля' })
+	useTitleLogic({ namePage: 'Відновлення пароля', id: null })
 
 	const handleResetClick = () => handleResetPassword(email, setErrorMessage)
 	const handleEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>

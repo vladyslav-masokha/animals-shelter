@@ -27,6 +27,12 @@ const FormBody: React.FC<FormBodyProps> = ({
 	setIsEmailValid,
 	setIsPasswordValid,
 }) => {
+	const handleEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+		handleEmailChange(e, { setEmail })
+
+	const handlePasswordInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+		handlePasswordChange(e, { setPassword })
+
 	return (
 		<div className={styles.formBody}>
 			<TextField
@@ -38,9 +44,7 @@ const FormBody: React.FC<FormBodyProps> = ({
 				value={email}
 				error={!isEmailValid}
 				helperText={helperTextEmailLogic(isEmailValid)}
-				onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-					handleEmailChange(e, { setEmail })
-				}
+				onChange={handleEmailInputChange}
 				onBlur={() => handleEmailBlur(email, setIsEmailValid)}
 			/>
 
@@ -53,9 +57,7 @@ const FormBody: React.FC<FormBodyProps> = ({
 				value={password}
 				error={!isPasswordValid}
 				helperText={HelperTextPasswordLogic(isPasswordValid)}
-				onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-					handlePasswordChange(e, { setPassword })
-				}
+				onChange={handlePasswordInputChange}
 				onBlur={() => handlePasswordBlur(password, setIsPasswordValid)}
 			/>
 		</div>

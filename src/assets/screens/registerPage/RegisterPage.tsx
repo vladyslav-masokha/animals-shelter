@@ -26,7 +26,10 @@ const RegisterPage = () => {
 	const [isEmailValid, setIsEmailValid] = useState<boolean>(true)
 	const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true)
 
-	useTitleLogic({ namePage: 'Реєстрація' })
+	useTitleLogic({
+		namePage: 'Реєстрація',
+		id: null
+	})
 
 	useEffect(() => {
 		if (user) history.push('/')
@@ -37,6 +40,7 @@ const RegisterPage = () => {
 			userName,
 			email,
 			password,
+			setUserName,
 			setEmail,
 			setPassword,
 			setErrorMessage
@@ -76,6 +80,7 @@ const RegisterPage = () => {
 					/>
 					<AuthBtnRegister
 						handleRegisterClick={handleRegisterClick}
+						isUserNameValid={isUserNameValid}
 						isEmailValid={isEmailValid}
 						isPasswordValid={isPasswordValid}
 					/>

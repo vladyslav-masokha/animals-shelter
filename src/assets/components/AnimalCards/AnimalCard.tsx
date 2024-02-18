@@ -16,6 +16,7 @@ const AnimalCard: React.FC<AnimalCardProps> = ({ animals }) => {
 							className={styles.cardImage}
 							src={animal.image}
 							alt={animal.name}
+							loading='lazy'
 						/>
 
 						<div className={styles.cardInfo}>

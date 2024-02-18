@@ -22,7 +22,7 @@ const LoginPage = () => {
 	const [isEmailValid, setIsEmailValid] = useState<boolean>(true)
 	const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true)
 
-	useTitleLogic({ namePage: 'Авторизація' })
+	useTitleLogic({ namePage: 'Авторизація', id: null })
 
 	useEffect(() => {
 		if (user) history.push('/')

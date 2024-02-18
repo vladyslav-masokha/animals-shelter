@@ -1,8 +1,8 @@
 import { TextField } from '@mui/material'
 import { useState } from 'react'
-import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
 import styles from '../Filter.module.scss'
-import { valueLabelFormat } from './logic/valueLabelFormat'
+import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
+import { valueLabelFormatWeight } from './logic/valueLabelFormatWeight'
 
 interface WeightFilterProps {
 	setWeightFilter: (weightRange: [number, number] | null) => void
@@ -45,7 +45,7 @@ const WeightFilter: React.FC<WeightFilterProps> = ({
 				onChangeCommitted={handleApplyFilters}
 				color='primary'
 				valueLabelDisplay='auto'
-				valueLabelFormat={valueLabelFormat}
+				valueLabelFormat={valueLabelFormatWeight}
 				min={1}
 				max={12}
 			/>

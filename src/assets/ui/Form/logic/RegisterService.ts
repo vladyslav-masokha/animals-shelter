@@ -12,17 +12,23 @@ const handleRegister = (
 	userName: string,
 	email: string,
 	password: string,
+	setUserName: SetState<string>,
 	setEmail: SetState<string>,
 	setPassword: SetState<string>,
 	setErrorMessage: SetState<string | null>
 ) => {
 	const auth = getAuth()
+	if (!userName.trim()) {
+		setErrorMessage("Невірне ім'я користувача!")
+		return
+	}
 
 	createUserWithEmailAndPassword(auth, email, password)
 		.then(async userCredential => {
 			const user = userCredential.user
 			await updateProfile(user, { displayName: userName })
 
+			setUserName('')
 			setEmail('')
 			setPassword('')
 			setErrorMessage('')

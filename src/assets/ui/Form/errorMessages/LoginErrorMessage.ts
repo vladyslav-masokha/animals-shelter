@@ -13,9 +13,6 @@ const LoginErrorMessages = (
 			? 'Невірний пароль!'
 			: errorCode === 'auth/missing-password'
 			? 'Введіть пароль!'
-			: errorCode === AuthErrorCodes.WEAK_PASSWORD ||
-      errorCode === 'auth/weak-password'
-      ? 'Слабкий пароль. Виберіть більш надійний пароль!'
 			: errorCode === AuthErrorCodes.INVALID_LOGIN_CREDENTIALS
 			? 'Невірна адреса електронної пошти або пароль!'
 			: errorCode === AuthErrorCodes.USER_DELETED
