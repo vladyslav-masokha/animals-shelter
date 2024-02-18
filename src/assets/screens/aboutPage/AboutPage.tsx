@@ -1,7 +1,10 @@
 import { Header } from '../../ui/Header/Header'
+import { useTitleLogic } from '../globalLogic/titleLogic'
 import styles from './AboutPage.module.scss'
 
 const AboutPage = () => {
+	useTitleLogic({ namePage: 'Про Нас' })
+
 	return (
 		<>
 			<Header />

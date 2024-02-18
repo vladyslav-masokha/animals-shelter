@@ -42,6 +42,9 @@ const RegisterPage = () => {
 			setErrorMessage
 		)
 
+	const handleUserNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+		handleUserNameChange(e, { setUserName })
+
 	return (
 		<form className={styles.form}>
 			<div className='wrapper'>
@@ -59,9 +62,7 @@ const RegisterPage = () => {
 						error={!isUserNameValid}
 						helperText={helperTextUserNameLogic(isUserNameValid)}
 						onBlur={() => handleUserNameBlur(userName, setIsUserNameValid)}
-						onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-							handleUserNameChange(e, { setUserName })
-						}
+						onChange={handleUserNameInputChange}
 					/>
 					<FormBody
 						email={email}

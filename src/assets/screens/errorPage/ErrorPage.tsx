@@ -1,15 +1,9 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useTitleLogic } from '../globalLogic/titleLogic'
 import styles from './ErrorPage.module.scss'
 
 const ErrorPage = () => {
-	useEffect(() => {
-		document.title = 'Сторінку не знайдено!'
-
-		return () => {
-			document.title = 'Головна - Притулок для тварин'
-		}
-	}, [])
+	useTitleLogic({ namePage: 'Сторінку не знайдено!' })
 
 	return (
 		<div className={styles.errorPage}>

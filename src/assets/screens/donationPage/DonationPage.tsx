@@ -1,7 +1,10 @@
 import { Header } from '../../ui/Header/Header'
+import { useTitleLogic } from '../globalLogic/titleLogic'
 import styles from './DonationPage.module.scss'
 
 const DonationPage = () => {
+	useTitleLogic({ namePage: 'Донорство' })
+
 	return (
 		<>
 			<Header />

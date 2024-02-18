@@ -34,29 +34,31 @@ const LoginPage = () => {
 	return (
 		<form className={styles.form}>
 			<div className='wrapper'>
-				<Typography className={styles.title}>Логін</Typography>
-				<ErrorMessages errorMessage={errorMessage} />
+				<div className={styles.formGaps}>
+					<Typography className={styles.title}>Логін</Typography>
+					<ErrorMessages errorMessage={errorMessage} />
 
-				<FormBody
-					email={email}
-					password={password}
-					setEmail={setEmail}
-					setPassword={setPassword}
-					isEmailValid={isEmailValid}
-					isPasswordValid={isPasswordValid}
-					setIsEmailValid={setIsEmailValid}
-					setIsPasswordValid={setIsPasswordValid}
-				/>
+					<FormBody
+						email={email}
+						password={password}
+						setEmail={setEmail}
+						setPassword={setPassword}
+						isEmailValid={isEmailValid}
+						isPasswordValid={isPasswordValid}
+						setIsEmailValid={setIsEmailValid}
+						setIsPasswordValid={setIsPasswordValid}
+					/>
 
-				<AuthBtnForgotPassword />
+					<AuthBtnForgotPassword />
 
-				<AuthBtnLogin
-					handleLoginClick={handleLoginClick}
-					isEmailValid={isEmailValid}
-					isPasswordValid={isPasswordValid}
-				/>
+					<AuthBtnLogin
+						handleLoginClick={handleLoginClick}
+						isEmailValid={isEmailValid}
+						isPasswordValid={isPasswordValid}
+					/>
 
-				<SignInWithGoogle auth={auth} />
+					<SignInWithGoogle auth={auth} />
+				</div>
 			</div>
 		</form>
 	)

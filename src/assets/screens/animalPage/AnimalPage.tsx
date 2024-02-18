@@ -1,9 +1,9 @@
 import { Header } from '../../ui/Header/Header'
 import { useTitleLogic } from '../globalLogic/titleLogic'
-import styles from './UserProfile.module.scss'
+import styles from './AnimalPage.module.scss'
 
-const UserProfilePage = () => {
-	useTitleLogic({ namePage: 'Профіль' })
+const AnimalPage = () => {
+	useTitleLogic({ namePage: 'Боб (test name)' })
 
 	return (
 		<>
@@ -18,4 +18,4 @@ const UserProfilePage = () => {
 	)
 }
 
-export { UserProfilePage }
+export { AnimalPage }
