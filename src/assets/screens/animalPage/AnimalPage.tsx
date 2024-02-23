@@ -19,14 +19,25 @@ const AnimalPage = () => {
 		<>
 			<Header />
 
-			<div className={styles.about}>
+			<div className={styles.animalPage}>
 				<div className='wrapper'>
-					{animal !== undefined ? (
-						<>
-							<h2>{animal.name} (in developing)</h2>
-							<h3>{valueLabelFormatAge(animal.age)} </h3>
-							<h3>{valueLabelFormatWeight(animal.weight)} </h3>
-						</>
+					{animal ? (
+						<div className={styles.animal}>
+							<img
+								className={styles.cardImage}
+								src={animal.image}
+								alt={animal.name}
+								loading='lazy'
+							/>
+
+							<div className={styles.animalInfo}>
+								<h3 className={styles.name}>{animal.name}</h3>
+								<p>Вік: {valueLabelFormatAge(animal.age)}</p>
+								<p>Вага: {valueLabelFormatWeight(animal.weight)}</p>
+								<p>Розмір: {animal.size}</p>
+								<p>Стать: {animal.gender}</p>
+							</div>
+						</div>
 					) : (
 						<p>
 							Тваринка з id <b>{id}</b> не знайдена

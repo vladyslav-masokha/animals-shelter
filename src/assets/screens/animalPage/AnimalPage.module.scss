@@ -1,0 +1,40 @@
+.animalPage {
+	.animal {
+		width: 100%;
+		margin: 30px 0 0;
+		padding: 0 15px;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+
+		.cardImage {
+			width: 250px;
+			height: 250px;
+
+			border-radius: 20px;
+		}
+
+		.animalInfo {
+			margin: 15px 0 0 5px;
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+
+			.name {
+				margin: 0;
+				font-size: 24px;
+				font-style: italic;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.animalPage {
+		.animal {
+			.cardImage {
+				// width: 30%;
+			}
+		}
+	}
+}
