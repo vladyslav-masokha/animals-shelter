@@ -1,0 +1,20 @@
+.footer {
+	margin-top: auto;
+	background-color: var(--global-pastel-dark);
+
+	.wrapper {
+		padding: 0 15px;
+
+		.footerBody {
+			padding: 15px 0;
+
+			p {
+				color: var(--global-light);
+
+				a {
+					color: var(--global-yellow-dark);
+				}
+			}
+		}
+	}
+}

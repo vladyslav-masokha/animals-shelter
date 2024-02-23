@@ -5,6 +5,7 @@ import { Header } from '../../ui/Header/Header'
 import { useFetchData } from '../../useFetchData'
 import { useTitleLogic } from '../globalLogic/titleLogic'
 import styles from './AnimalPage.module.scss'
+import Footer from '../../ui/footer/Footer'
 
 const AnimalPage = () => {
 	const { id } = useParams<{ id: string }>()
@@ -45,6 +46,8 @@ const AnimalPage = () => {
 					)}
 				</div>
 			</div>
+
+			<Footer />
 		</>
 	)
 }

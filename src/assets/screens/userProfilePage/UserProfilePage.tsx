@@ -1,4 +1,5 @@
 import { Header } from '../../ui/Header/Header'
+import Footer from '../../ui/footer/Footer'
 import { useTitleLogic } from '../globalLogic/titleLogic'
 import styles from './UserProfile.module.scss'
 
@@ -14,6 +15,8 @@ const UserProfilePage = () => {
 					<h2>В розробці!</h2>
 				</div>
 			</div>
+
+			<Footer />
 		</>
 	)
 }

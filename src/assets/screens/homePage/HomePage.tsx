@@ -5,6 +5,7 @@ import { Filter } from '../../components/filter/Filter'
 import { Header } from '../../ui/Header/Header'
 import { useFetchData } from '../../useFetchData'
 import styles from './HomePage.module.scss'
+import Footer from '../../ui/footer/Footer'
 
 const HomePage = () => {
 	const [animals, setAnimals] = useState<Animal[]>([])
@@ -32,6 +33,8 @@ const HomePage = () => {
 					</div>
 				</div>
 			</div>
+
+			<Footer />
 		</>
 	)
 }
