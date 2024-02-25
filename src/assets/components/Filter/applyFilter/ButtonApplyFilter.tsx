@@ -1,9 +1,8 @@
 import { Button } from '@mui/material'
-import { Dispatch, SetStateAction } from 'react'
 import styles from '../Filter.module.scss'
 
 interface ButtonApplyFilterProps {
-	openFilterFunction: Dispatch<SetStateAction<void>>
+	openFilterFunction: () => void
 	applyFilters: () => void
 }
 

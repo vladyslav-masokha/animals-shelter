@@ -2,14 +2,10 @@ import { Animal } from '../IAnimal'
 import { AnimalCard } from './AnimalCard'
 import styles from './AnimalsCard.module.scss'
 
-interface AnimalCardProps {
-	animals: Animal[] | Animal
-}
-
-const AnimalsCards: React.FC<AnimalCardProps> = ({ animals }) => {
+const AnimalsCards: React.FC<{ animals: Animal[] }> = ({ animals }) => {
 	return (
 		<div className={styles.cards}>
-			{Array.isArray(animals) ? <AnimalCard animals={animals} /> : null}
+			{animals.length > 0 && <AnimalCard animals={animals} />}
 		</div>
 	)
 }

@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom'
-import { valueLabelFormatAge } from '../../components/filter/age/logic/valueLabelFormatAge'
-import { valueLabelFormatWeight } from '../../components/filter/weight/logic/valueLabelFormatWeight'
+import { valueLabelFormatAge } from '../../components/logicLabelFormat/valueLabelFormatAge'
+import { valueLabelFormatWeight } from '../../components/logicLabelFormat/valueLabelFormatWeight'
 import { Header } from '../../ui/Header/Header'
+import Footer from '../../ui/footer/Footer'
 import { useFetchData } from '../../useFetchData'
 import { useTitleLogic } from '../globalLogic/titleLogic'
 import styles from './AnimalPage.module.scss'
-import Footer from '../../ui/footer/Footer'
 
 const AnimalPage = () => {
 	const { id } = useParams<{ id: string }>()

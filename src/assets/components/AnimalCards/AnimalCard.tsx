@@ -2,14 +2,10 @@ import { Link } from 'react-router-dom'
 import { Animal } from '../IAnimal'
 import styles from './AnimalsCard.module.scss'
 
-interface AnimalCardProps {
-	animals: Animal[]
-}
-
-const AnimalCard: React.FC<AnimalCardProps> = ({ animals }) => {
+const AnimalCard: React.FC<{ animals: Animal[] }> = ({ animals }) => {
 	return (
 		<>
-			{animals.length !== 0 ? (
+			{animals.length > 0 ? (
 				animals.map(animal => (
 					<Link to={`/${animal.id}`} className={styles.card} key={animal.id}>
 						<img

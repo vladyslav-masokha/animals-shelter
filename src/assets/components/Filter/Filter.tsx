@@ -17,7 +17,6 @@ interface FilterProps {
 
 const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 	const [openFilter, setOpenFilter] = useState(false)
-
 	const [ageFilter, setAgeFilter] = useState<[number, number] | null>(null)
 	const [genderFilter, setGenderFilter] = useState<string | null>(null)
 	const [sizeFilter, setSizeFilter] = useState<string | null>(null)
