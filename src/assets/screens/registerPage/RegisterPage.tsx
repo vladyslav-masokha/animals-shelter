@@ -1,8 +1,11 @@
 import { TextField, Typography } from '@mui/material'
 import { getAuth } from 'firebase/auth'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useHistory } from 'react-router-dom'
+import { MessageLogic } from '../../globalLogic/messageLogic'
+import { redirectAfterTimeout } from '../../globalLogic/redirectAfterTimeout'
+import { useTitleLogic } from '../../globalLogic/titleLogic'
 import styles from '../../ui/Form/Form.module.scss'
 import { FormBody } from '../../ui/Form/FormBody'
 import { AuthBtnRegister } from '../../ui/Form/buttons/AuthBtnRegister'
@@ -11,8 +14,6 @@ import { handleUserNameBlur } from '../../ui/Form/handleBlurLogic/HandleUserName
 import { helperTextUserNameLogic } from '../../ui/Form/helperLogic/HelperTextUserNameLogic'
 import { handleUserNameChange } from '../../ui/Form/logic/AuthLogic'
 import { handleRegister } from '../../ui/Form/logic/RegisterService'
-import { ErrorMessages } from '../globalLogic/errorMessageLogic'
-import { useTitleLogic } from '../globalLogic/titleLogic'
 
 const RegisterPage = () => {
 	const history = useHistory()
@@ -21,19 +22,16 @@ const RegisterPage = () => {
 	const [userName, setUserName] = useState<string>('')
 	const [email, setEmail] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
+
+	const [successMessage, setSuccessMessage] = useState<string | null>(null)
 	const [errorMessage, setErrorMessage] = useState<string | null>(null)
+
 	const [isUserNameValid, setIsUserNameValid] = useState<boolean>(true)
 	const [isEmailValid, setIsEmailValid] = useState<boolean>(true)
 	const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true)
 
-	useTitleLogic({
-		namePage: 'Реєстрація',
-		id: null
-	})
-
-	useEffect(() => {
-		if (user) history.push('/')
-	}, [user, history])
+	useTitleLogic({ namePage: 'Реєстрація', id: null })
+	redirectAfterTimeout({ user, history })
 
 	const handleRegisterClick = () =>
 		handleRegister(
@@ -43,17 +41,35 @@ const RegisterPage = () => {
 			setUserName,
 			setEmail,
 			setPassword,
+			setSuccessMessage,
 			setErrorMessage
 		)
 
-	const handleUserNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-		handleUserNameChange(e, { setUserName })
+	const messageProps = { successMessage, errorMessage }
+	const btnRegisterProps = {
+		handleRegisterClick,
+		isUserNameValid,
+		isEmailValid,
+		isPasswordValid,
+	}
+
+	const formProps = {
+		email,
+		password,
+		setEmail,
+		setPassword,
+		isUserNameValid,
+		isEmailValid,
+		isPasswordValid,
+		setIsEmailValid,
+		setIsPasswordValid,
+	}
 
 	return (
 		<form className={styles.form}>
 			<div className='wrapper'>
 				<Typography className={styles.title}>Реєстрація</Typography>
-				<ErrorMessages errorMessage={errorMessage} />
+				<MessageLogic {...messageProps} />
 
 				<div className={styles.formBody}>
 					<TextField
@@ -66,24 +82,12 @@ const RegisterPage = () => {
 						error={!isUserNameValid}
 						helperText={helperTextUserNameLogic(isUserNameValid)}
 						onBlur={() => handleUserNameBlur(userName, setIsUserNameValid)}
-						onChange={handleUserNameInputChange}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+							handleUserNameChange(e, { setUserName })
+						}
 					/>
-					<FormBody
-						email={email}
-						password={password}
-						setEmail={setEmail}
-						setPassword={setPassword}
-						isEmailValid={isEmailValid}
-						isPasswordValid={isPasswordValid}
-						setIsEmailValid={setIsEmailValid}
-						setIsPasswordValid={setIsPasswordValid}
-					/>
-					<AuthBtnRegister
-						handleRegisterClick={handleRegisterClick}
-						isUserNameValid={isUserNameValid}
-						isEmailValid={isEmailValid}
-						isPasswordValid={isPasswordValid}
-					/>
+					<FormBody {...formProps} />
+					<AuthBtnRegister {...btnRegisterProps} />
 					<SignInWithGoogle auth={auth} />
 				</div>
 			</div>

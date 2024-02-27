@@ -2,15 +2,12 @@ import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import styles from '../Filter.module.scss'
 import { radioStyles } from '../filterStyles/radioStyles'
 
-interface TypeFilterProps {
+interface TypeProps {
 	setTypeFilter: (typeFilter: string | null) => void
 	applyFilters: () => void
 }
 
-const TypeFilter: React.FC<TypeFilterProps> = ({
-	setTypeFilter,
-	applyFilters,
-}) => {
+const TypeFilter: React.FC<TypeProps> = ({ setTypeFilter, applyFilters }) => {
 	const handleTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setTypeFilter(event.target.value === '' ? null : event.target.value)
 		applyFilters()
@@ -19,6 +16,7 @@ const TypeFilter: React.FC<TypeFilterProps> = ({
 	return (
 		<div className={styles.filterType}>
 			<h3>Тип</h3>
+
 			<FormControl>
 				<RadioGroup
 					aria-labelledby='demo-radio-buttons-group-label'

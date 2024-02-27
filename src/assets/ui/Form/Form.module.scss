@@ -19,7 +19,16 @@
 
 	.errorMessage {
 		color: var(--global-red);
+	}
+
+	.successMessage {
+		color: var(--global-pastel-light);
+	}
+
+	.errorMessage,
+	.successMessage {
 		margin: 0 0 15px;
+		font-weight: bold;
 	}
 
 	.formBody {
@@ -48,15 +57,11 @@
 		}
 	}
 
-	.loginBtns {
+	.loginBtns:not(.regBtns),
+	.regBtns:not(.regBtns),
+	.resetBtns:not(.regBtns) {
 		margin: 25px 0 0;
 
-		button {
-			color: var(--global-pastel);
-		}
-	}
-
-	.regBtns {
 		button {
 			color: var(--global-pastel);
 		}
@@ -69,5 +74,6 @@
 	.resetBtn {
 		width: 100%;
 		margin: 5px 0 0;
+		color: var(--global-pastel);
 	}
 }

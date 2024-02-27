@@ -1,29 +1,25 @@
 import { TextField } from '@mui/material'
-import { useState } from 'react'
-import { valueLabelFormatWeight } from '../../logicLabelFormat/valueLabelFormatWeight'
+import { useEffect, useState } from 'react'
+import { valueLabelFormatWeight } from '../../../globalLogic/valueLabelFormatWeight'
 import styles from '../Filter.module.scss'
 import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
 
-interface WeightFilterProps {
+interface WeightProps {
 	setWeightFilter: (weightRange: [number, number] | null) => void
 	applyFilters: () => void
 }
 
-const WeightFilter: React.FC<WeightFilterProps> = ({
+const WeightFilter: React.FC<WeightProps> = ({
 	setWeightFilter,
 	applyFilters,
 }) => {
 	const [weightRange, setWeightRange] = useState<[number, number]>([1, 12])
 
-	const handleApplyFilters = () => {
-		setWeightFilter(weightRange)
-		applyFilters()
-	}
+	useEffect(() => applyFilters(), [weightRange, applyFilters])
 
 	const handleWeightChange = (_event: Event, newValue: number | number[]) => {
 		if (Array.isArray(newValue)) setWeightRange([newValue[0], newValue[1]])
 		else setWeightRange([0, newValue])
-		handleApplyFilters()
 	}
 
 	const handleInputChange = (
@@ -42,7 +38,7 @@ const WeightFilter: React.FC<WeightFilterProps> = ({
 			<Slider
 				value={weightRange}
 				onChange={handleWeightChange}
-				onChangeCommitted={handleApplyFilters}
+				onChangeCommitted={() => setWeightFilter(weightRange)}
 				color='primary'
 				valueLabelDisplay='auto'
 				valueLabelFormat={valueLabelFormatWeight}

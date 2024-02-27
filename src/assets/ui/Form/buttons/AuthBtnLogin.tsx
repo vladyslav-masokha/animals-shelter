@@ -2,13 +2,13 @@ import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 import styles from '../Form.module.scss'
 
-interface AuthButtonProps {
+interface ButtonLoginProps {
 	handleLoginClick: () => void
 	isEmailValid: boolean
 	isPasswordValid: boolean
 }
 
-const AuthBtnLogin: React.FC<AuthButtonProps> = ({
+const AuthBtnLogin: React.FC<ButtonLoginProps> = ({
 	handleLoginClick,
 	isEmailValid,
 	isPasswordValid,

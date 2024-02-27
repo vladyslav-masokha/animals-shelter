@@ -8,12 +8,15 @@ const handleLogin = (
 	password: string,
 	setEmail: SetState<string>,
 	setPassword: SetState<string>,
+	setSuccessMessage: SetState<string | null>,
 	setErrorMessage: SetState<string | null>
 ) => {
 	const auth = getAuth()
 
 	signInWithEmailAndPassword(auth, email, password)
 		.then(() => {
+			setSuccessMessage('Авторизація пройшла успішно!')
+
 			setEmail('')
 			setPassword('')
 			setErrorMessage('')

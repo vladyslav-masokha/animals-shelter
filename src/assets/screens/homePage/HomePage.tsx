@@ -3,14 +3,14 @@ import { Animal } from '../../components/IAnimal'
 import { AnimalsCards } from '../../components/animalCards/AnimalsCards'
 import { Filter } from '../../components/filter/Filter'
 import { Header } from '../../ui/Header/Header'
+import { Footer } from '../../ui/footer/Footer'
 import { useFetchData } from '../../useFetchData'
 import styles from './HomePage.module.scss'
-import Footer from '../../ui/footer/Footer'
 
 const HomePage = () => {
 	const [animals, setAnimals] = useState<Animal[]>([])
 	const [filteredProducts, setFilteredProducts] = useState<Animal[]>([])
-	const animalsData: string = './animals.json'
+	const animalsData = './animals.json'
 	const data = useFetchData(animalsData)
 
 	useEffect(() => {

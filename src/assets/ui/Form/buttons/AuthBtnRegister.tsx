@@ -2,25 +2,27 @@ import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 import styles from '../Form.module.scss'
 
-interface AuthButtonProps {
+interface ButtonRegisterProps {
 	handleRegisterClick: () => void
 	isUserNameValid: boolean
 	isEmailValid: boolean
 	isPasswordValid: boolean
 }
 
-const AuthBtnRegister: React.FC<AuthButtonProps> = ({
+const AuthBtnRegister: React.FC<ButtonRegisterProps> = ({
 	handleRegisterClick,
 	isUserNameValid,
 	isEmailValid,
 	isPasswordValid,
 }) => {
+	const regBtnLogic = !isUserNameValid || !isEmailValid || !isPasswordValid
+
 	return (
 		<div className={styles.regBtns}>
 			<Button
 				variant='text'
 				onClick={handleRegisterClick}
-				disabled={!isUserNameValid || !isEmailValid || !isPasswordValid}
+				disabled={regBtnLogic}
 			>
 				Зареєструватись
 			</Button>

@@ -35,11 +35,7 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 		weightFilter
 	)
 
-	const openFilterFunction = () => {
-		setOpenFilter(!openFilter)
-		applyFilters()
-	}
-
+	const openFilterFunction = () => setOpenFilter(!openFilter)
 	const logicOpenFilter = openFilter
 		? `${styles.filterBlock} ${styles.visible}`
 		: `${styles.filterBlock}`
@@ -58,12 +54,10 @@ const Filter: React.FC<FilterProps> = ({ animals, setFilteredProducts }) => {
 					</button>
 
 					<AgeFilter setAgeFilter={setAgeFilter} applyFilters={applyFilters} />
-
 					<GenderFilter
 						setGenderFilter={setGenderFilter}
 						applyFilters={applyFilters}
 					/>
-
 					<SizeFilter
 						setSizeFilter={setSizeFilter}
 						applyFilters={applyFilters}

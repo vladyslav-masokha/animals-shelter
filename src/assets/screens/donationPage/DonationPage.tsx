@@ -1,6 +1,6 @@
+import { useTitleLogic } from '../../globalLogic/titleLogic'
 import { Header } from '../../ui/Header/Header'
-import Footer from '../../ui/footer/Footer'
-import { useTitleLogic } from '../globalLogic/titleLogic'
+import { Footer } from '../../ui/footer/Footer'
 import styles from './DonationPage.module.scss'
 
 const DonationPage = () => {

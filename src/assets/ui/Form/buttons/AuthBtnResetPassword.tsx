@@ -1,21 +1,21 @@
 import { Button } from '@mui/material'
 import styles from '../Form.module.scss'
 
-interface AuthBtnResetPasswordProps {
+interface ResetProps {
 	handleResetClick: () => void
 }
 
-const AuthBtnResetPassword: React.FC<AuthBtnResetPasswordProps> = ({
-	handleResetClick,
-}) => {
+const AuthBtnResetPassword: React.FC<ResetProps> = ({ handleResetClick }) => {
 	return (
-		<Button
-			variant='text'
-			className={styles.resetBtn}
-			onClick={handleResetClick}
-		>
-			Скинути
-		</Button>
+		<div className={styles.resetBtns}>
+			<Button
+				variant='text'
+				className={styles.resetBtn}
+				onClick={handleResetClick}
+			>
+				Скинути
+			</Button>
+		</div>
 	)
 }
 

@@ -1,30 +1,23 @@
-import { AuthErrorCodes, getAuth, sendPasswordResetEmail } from 'firebase/auth'
+import { AuthError, getAuth, sendPasswordResetEmail } from 'firebase/auth'
+import { ResetErrorMessages } from '../errorMessages/ResetErrorMessage'
+
+type SetState<T> = (state: T) => void
 
 const handleResetPassword = (
 	email: string,
-	setErrorMessage: (errorMessage: string | null) => void
+	setSuccessMessage: SetState<string | null>,
+	setErrorMessage: SetState<string | null>
 ) => {
 	const auth = getAuth()
+
 	sendPasswordResetEmail(auth, email)
 		.then(() => {
-			return { success: true, message: `Email sent to ${email} successfully.` }
+			setSuccessMessage(`Електронний лист надіслано успішно на ${email}.`)
+			setErrorMessage('')
 		})
-		.catch(error => {
-			const errorCode = error.code
-			const errorMessage = error.message
-
-			console.log(AuthErrorCodes)
-
-			setErrorMessage(
-				errorCode === AuthErrorCodes.USER_DELETED ||
-					errorCode === 'auth/user-not-found'
-					? 'Користувач не знайдений!'
-					: errorCode === AuthErrorCodes.NETWORK_REQUEST_FAILED
-					? 'Помилка мережі. Спробуйте пізніше.'
-					: errorCode === 'auth/missing-email'
-					? 'Не вказана адреса електронної пошти.'
-					: errorMessage
-			)
+		.catch((error: AuthError) => {
+			const { code, message } = error
+			ResetErrorMessages(setErrorMessage, code, message)
 		})
 }
 

@@ -1,4 +1,4 @@
-import { Copyright } from '../copyright/Copyright'
+import { Copyright } from './copyright/Copyright'
 import styles from './Footer.module.scss'
 
 const Footer = () => {
@@ -13,4 +13,4 @@ const Footer = () => {
 	)
 }
 
-export default Footer
+export { Footer }

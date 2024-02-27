@@ -6,6 +6,8 @@ import { helperTextEmailLogic } from './helperLogic/HelperTextEmailLogic'
 import { HelperTextPasswordLogic } from './helperLogic/HelperTextPasswordLogic'
 import { handleEmailChange, handlePasswordChange } from './logic/AuthLogic'
 
+// type setSate<T> = void
+
 interface FormBodyProps {
 	email: string
 	password: string

@@ -2,15 +2,12 @@ import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import styles from '../Filter.module.scss'
 import { radioStyles } from '../filterStyles/radioStyles'
 
-interface SizeFilterProps {
+interface SizeProps {
 	setSizeFilter: (sizeFilter: string | null) => void
 	applyFilters: () => void
 }
 
-const SizeFilter: React.FC<SizeFilterProps> = ({
-	setSizeFilter,
-	applyFilters,
-}) => {
+const SizeFilter: React.FC<SizeProps> = ({ setSizeFilter, applyFilters }) => {
 	const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setSizeFilter(event.target.value === '' ? null : event.target.value)
 		applyFilters()
@@ -19,6 +16,7 @@ const SizeFilter: React.FC<SizeFilterProps> = ({
 	return (
 		<div className={styles.filterSize}>
 			<h3>Розмір</h3>
+
 			<FormControl>
 				<RadioGroup
 					aria-labelledby='demo-radio-buttons-group-label'

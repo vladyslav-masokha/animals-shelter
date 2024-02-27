@@ -1,36 +1,29 @@
 import { TextField } from '@mui/material'
-import { useState } from 'react'
-import { valueLabelFormatAge } from '../../logicLabelFormat/valueLabelFormatAge'
+import { useEffect, useState } from 'react'
+import { valueLabelFormatAge } from '../../../globalLogic/valueLabelFormatAge'
 import styles from '../Filter.module.scss'
 import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
 
-interface AgeFilterProps {
+interface AgeProps {
 	setAgeFilter: (ageRange: [number, number] | null) => void
 	applyFilters: () => void
 }
 
-const AgeFilter: React.FC<AgeFilterProps> = ({
-	setAgeFilter,
-	applyFilters,
-}) => {
+const AgeFilter: React.FC<AgeProps> = ({ setAgeFilter, applyFilters }) => {
 	const [ageRange, setAgeRange] = useState<[number, number]>([1, 25])
 
-	const handleApplyFilters = () => {
-		setAgeFilter(ageRange)
-		applyFilters()
-	}
+	useEffect(() => applyFilters(), [ageRange, applyFilters])
 
 	const handleAgeChange = (_event: Event, newValue: number | number[]) => {
 		if (Array.isArray(newValue)) setAgeRange([newValue[0], newValue[1]])
 		else setAgeRange([0, newValue])
-		handleApplyFilters()
 	}
 
 	const handleInputChange = (
 		event: React.ChangeEvent<HTMLInputElement>,
 		inputType: 'min' | 'max'
 	) => {
-		const value = parseInt(event.target.value)
+		const value = +event.target.value
 		if (inputType === 'min') setAgeRange([value, ageRange[1]])
 		else setAgeRange([ageRange[0], value])
 	}
@@ -42,7 +35,7 @@ const AgeFilter: React.FC<AgeFilterProps> = ({
 			<Slider
 				value={ageRange}
 				onChange={handleAgeChange}
-				onChangeCommitted={handleApplyFilters}
+				onChangeCommitted={() => setAgeFilter(ageRange)}
 				color='secondary'
 				valueLabelDisplay='auto'
 				valueLabelFormat={valueLabelFormatAge}

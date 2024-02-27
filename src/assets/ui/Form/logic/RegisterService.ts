@@ -15,6 +15,7 @@ const handleRegister = (
 	setUserName: SetState<string>,
 	setEmail: SetState<string>,
 	setPassword: SetState<string>,
+	setSuccessMessage: SetState<string | null>,
 	setErrorMessage: SetState<string | null>
 ) => {
 	const auth = getAuth()
@@ -27,6 +28,7 @@ const handleRegister = (
 		.then(async userCredential => {
 			const user = userCredential.user
 			await updateProfile(user, { displayName: userName })
+			setSuccessMessage('Реєстрація успішна!')
 
 			setUserName('')
 			setEmail('')
